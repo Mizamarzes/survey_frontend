@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -6,6 +7,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
+// Let set up our default styling
 :root {
   --primaryColor: hsl(94, 55%, 56%);
   --hoverColor: hsl(93, 75%, 76%);
@@ -16,6 +18,8 @@
   --bgColor: hsl(113, 11%, 85%);
   --inputColor: hsl(330, 12%, 97%);
   --inputColor: hsl(154, 14%, 90%);
+
+  // Font ang Typography
   --biggestFontSize: 2.5rem;
   --h1FontSize: 1.5rem;
   --h2FontSize: 1.25rem;
@@ -88,6 +92,7 @@ img {
   background-color: var(--paleGreen);
 }
 
+// Pages stylings
 .loginPage {
   height: 100vh;
   width: 100%;
@@ -95,69 +100,78 @@ img {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 7px 50px rgb(214, 223, 213);
+
+  .container {
+    height: 75vh;
+    width: 60%;
+    margin: auto;
+    justify-content: space-between;
+    border-radius: 10px;
+    background: hsl(0, 0%, 91%);
+
+    .videoDiv {
+      position: relative;
+      display: flex;
+      flex-basis: 50%;
+      width: 70%;
+      height: 100%;
+      padding: 0 1.5rem;
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: auto;
+      border-radius: 10px;
+      overflow: hidden;
+
+      .textDiv {
+        position: relative;
+
+        .title {
+          color: var(--whiteColor);
+          font-size: 35px;
+          font-weight: 800;
+        }
+
+        p {
+          color: var(--whiteColor);
+          padding: 1rem;
+          font-weight: 400;
+        }
+      }
+
+      .footerDiv {
+        bottom: 10px;
+        padding: 0 1rem;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.248);
+        left: 10px;
+        right: 10px;
+        justify-content: space-between;
+        backdrop-filter: blur(1px);
+        border-radius: 10px;
+
+        .text {
+          color: var(--whiteColor);
+        }
+
+        .btn {
+          background: var(--whiteColor);
+          color: var(--primaryColor);
+          padding: 0.8rem 1.5rem;
+          border-radius: 10px;
+          font-weight: 400;
+          transition: 0.3s ease;
+
+          &:hover {
+            background: var(--hoverColor);
+            color: var(--blackColor);
+          }
+        }
+      }
+    }
+
+    .formDiv{
+      flex-basis: 50%;
+    }
+  }
 }
-.loginPage .container {
-  height: 75vh;
-  width: 60%;
-  margin: auto;
-  justify-content: space-between;
-  border-radius: 10px;
-  background: hsl(0, 0%, 91%);
-}
-.loginPage .container .videoDiv {
-  position: relative;
-  display: flex;
-  flex-basis: 50%;
-  width: 70%;
-  height: 100%;
-  padding: 0 1.5rem;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.loginPage .container .videoDiv .textDiv {
-  position: relative;
-}
-.loginPage .container .videoDiv .textDiv .title {
-  color: var(--whiteColor);
-  font-size: 35px;
-  font-weight: 800;
-}
-.loginPage .container .videoDiv .textDiv p {
-  color: var(--whiteColor);
-  padding: 1rem;
-  font-weight: 400;
-}
-.loginPage .container .videoDiv .footerDiv {
-  bottom: 10px;
-  padding: 0 1rem;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.248);
-  left: 10px;
-  right: 10px;
-  justify-content: space-between;
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
-  border-radius: 10px;
-}
-.loginPage .container .videoDiv .footerDiv .text {
-  color: var(--whiteColor);
-}
-.loginPage .container .videoDiv .footerDiv .btn {
-  background: var(--whiteColor);
-  color: var(--primaryColor);
-  padding: 0.8rem 1.5rem;
-  border-radius: 10px;
-  font-weight: 400;
-  transition: 0.3s ease;
-}
-.loginPage .container .videoDiv .footerDiv .btn:hover {
-  background: var(--hoverColor);
-  color: var(--blackColor);
-}
-.loginPage .container .formDiv {
-  flex-basis: 50%;
-}/*# sourceMappingURL=App.css.map */
