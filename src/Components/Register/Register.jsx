@@ -10,10 +10,11 @@ import logo from "../../LoginAssets/logo.png";
 import { FaUserShield } from "react-icons/fa";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { AiOutlineSwapRight } from "react-icons/ai";
+import { MdMarkEmailRead } from "react-icons/md";
 
 const Register = () => {
   return (
-    <div className="loginPage flex">
+    <div className="registerPage flex">
       <div className="container flex">
         <div className="videoDiv">
           <div className="textDiv">
@@ -24,9 +25,9 @@ const Register = () => {
           </div>
 
           <div className="footerDiv flex">
-            <span className="text">Don't have an account?</span>
-            <Link to={"/register"}>
-              <button className="btn">Sign Up</button>
+            <span className="text">Have an account?</span>
+            <Link to={"/"}>
+              <button className="btn">Login</button>
             </Link>
           </div>
         </div>
@@ -34,11 +35,17 @@ const Register = () => {
         <div className="formDiv flex">
           <div className="headerDiv">
             <img src={logo} alt="Logo Image" />
-            <h3>Welcome Back!</h3>
+            <h3>Let Us Know You!</h3>
           </div>
 
           <form action="" className="form grid">
-            <span className="showMessage">Login Status will go here</span>
+            <div className="inputDiv">
+              <label htmlFor="email">Email</label>
+              <div className="input flex">
+                <MdMarkEmailRead className="icon" />
+                <input type="email" id="email" placeholder="Enter Email" />
+              </div>
+            </div>
 
             <div className="inputDiv">
               <label htmlFor="username">Username</label>
@@ -61,13 +68,13 @@ const Register = () => {
             </div>
 
             <button type="submit" className="btn flex">
-              <span>Login</span>
+              <span>Register</span>
               <AiOutlineSwapRight className="icon" />
             </button>
 
-            <span className="forgotPassword">
+            {/*<span className="forgotPassword">
               Forgot your password? <a href="">Click Here</a>
-            </span>
+            </span> */}
           </form>
         </div>
       </div>
