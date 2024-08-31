@@ -18,7 +18,9 @@ const Login = () => {
         <div className="videoDiv">
           <div className="textDiv">
             <h2 className="title">Create and Answer Extraordinary Surveys</h2>
-            <p>A well-designed survey is the key to unlocking valuable insightse!</p>
+            <p>
+              A well-designed survey is the key to unlocking valuable insightse!
+            </p>
           </div>
 
           <div className="footerDiv flex">
@@ -36,7 +38,7 @@ const Login = () => {
           </div>
 
           <form action="" className="form grid">
-            <span>Login Status will go here</span>
+            <span className="showMessage">Login Status will go here</span>
 
             <div className="inputDiv">
               <label htmlFor="username">Username</label>
@@ -50,22 +52,24 @@ const Login = () => {
               <label htmlFor="password">Password</label>
               <div className="input flex">
                 <BsFillShieldLockFill className="icon" />
-                <input type="password" id="password" placeholder="Enter Password" />
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter Password"
+                />
               </div>
             </div>
 
             <button type="submit" className="btn flex">
               <span>Login</span>
-              <AiOutlineSwapRight className="icon"/>
+              <AiOutlineSwapRight className="icon" />
             </button>
 
             <span className="forgotPassword">
               Forgot your password? <a href="">Click Here</a>
             </span>
-
           </form>
         </div>
-
       </div>
     </div>
   );
