@@ -17,8 +17,8 @@ const Login = () => {
       <div className="container flex">
         <div className="videoDiv">
           <div className="textDiv">
-            <h2 className="title">Create and Sell Extraordinary Products</h2>
-            <p>Adopt the peace of nature!</p>
+            <h2 className="title">Create and Answer Extraordinary Surveys</h2>
+            <p>A well-designed survey is the key to unlocking valuable insightse!</p>
           </div>
 
           <div className="footerDiv flex">

@@ -17,7 +17,7 @@
   --greyText: hsl(0, 0%, 75%);
   --bgColor: hsl(113, 11%, 85%);
   --inputColor: hsl(330, 12%, 97%);
-  --inputColor: hsl(154, 14%, 90%);
+  // --inputColor: hsl(154, 14%, 90%);
 
   // Font ang Typography
   --biggestFontSize: 2.5rem;
@@ -170,8 +170,60 @@ img {
       }
     }
 
-    .formDiv{
+    .formDiv {
       flex-basis: 50%;
+      margin: auto;
+      flex-direction: column;
+      gap: 1.5rem;
+      transform: translateY(-1rem);
+
+      .headerDiv{
+        text-align: center;
+        padding: 1.5rem 0;
+
+        img{
+          width: 60px;
+          padding-bottom: .5rem;
+        }
+
+        h3{
+          font-size: 25px;
+          color: var(--blackColor);
+          font-weight: 600;
+        }
+      }
+
+      .form{
+        gap: 1rem;
+
+        .inputDiv{
+          .icon{
+            color: var(--greyText);
+          }
+
+          input{
+            background: none;
+            outline: none;
+            border: none;
+            width: 200px;
+          }
+
+          label{
+            color: var(--blackColor);
+            font-weight: 400;
+            font-size: 14px;
+            padding: .5rem 0;
+            display: block;
+          }
+
+          .input{
+            gap: .5rem;
+            padding: 1rem;
+            background: var(--inputColor);
+            border-radius: 10px;
+          }
+        }
+      }
     }
   }
 }

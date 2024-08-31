@@ -15,7 +15,6 @@
   --greyText: hsl(0, 0%, 75%);
   --bgColor: hsl(113, 11%, 85%);
   --inputColor: hsl(330, 12%, 97%);
-  --inputColor: hsl(154, 14%, 90%);
   --biggestFontSize: 2.5rem;
   --h1FontSize: 1.5rem;
   --h2FontSize: 1.25rem;
@@ -160,4 +159,46 @@ img {
 }
 .loginPage .container .formDiv {
   flex-basis: 50%;
+  margin: auto;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateY(-1rem);
+}
+.loginPage .container .formDiv .headerDiv {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.loginPage .container .formDiv .headerDiv img {
+  width: 60px;
+  padding-bottom: 0.5rem;
+}
+.loginPage .container .formDiv .headerDiv h3 {
+  font-size: 25px;
+  color: var(--blackColor);
+  font-weight: 600;
+}
+.loginPage .container .formDiv .form {
+  gap: 1rem;
+}
+.loginPage .container .formDiv .form .inputDiv .icon {
+  color: var(--greyText);
+}
+.loginPage .container .formDiv .form .inputDiv input {
+  background: none;
+  outline: none;
+  border: none;
+  width: 200px;
+}
+.loginPage .container .formDiv .form .inputDiv label {
+  color: var(--blackColor);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0.5rem 0;
+  display: block;
+}
+.loginPage .container .formDiv .form .inputDiv .input {
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--inputColor);
+  border-radius: 10px;
 }/*# sourceMappingURL=App.css.map */
