@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import "../../App.css";
 import { Link } from "react-router-dom";
-import { Axios } from "axios";
+import Axios from "axios";
 
 // Import our assets
 import logo from "../../LoginAssets/logo.png";
@@ -20,18 +20,19 @@ const Register = () => {
   const [password, setPassword] = useState("");
 
   // Onclick let us get what the user has entered
-  const createUser = () => {
-    // Call our API to create the user
+  const createUser = (e) => {
+    e.preventDefault(); // Evita que la página se recargue
     Axios.post("http://localhost:8080/auth/register", {
-      // Create variable to send to the server through the route
-      Email: email,
-      Username: username,
-      Password: password,
-    }).then(() => {
-      // If the request was successful, display a success message
-      //alert("User Created Successfully!");
-      console.log("User Created Successfully!");
-    });
+      username: username, // Cambié Username a username
+      password: password, // Cambié Password a password
+      roles: ["USER"], // Si el backend requiere un campo roles, puedes asignar un valor predeterminado
+    })
+      .then(() => {
+        console.log("User Created Successfully!");
+      })
+      .catch((error) => {
+        console.error("There was an error creating the user:", error);
+      });
   };
 
   return (
