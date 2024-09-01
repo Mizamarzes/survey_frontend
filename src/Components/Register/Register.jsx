@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
 import "../../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 // Import our assets
@@ -18,6 +18,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigateTo = useNavigate();
 
   // Onclick let us get what the user has entered
   const createUser = (e) => {
@@ -28,7 +29,11 @@ const Register = () => {
       roles: ["USER"], // Si el backend requiere un campo roles, puedes asignar un valor predeterminado
     })
       .then(() => {
-        console.log("User Created Successfully!");
+        navigateTo("/");
+
+        setEmail("");
+        setUsername("");
+        setPassword("");
       })
       .catch((error) => {
         console.error("There was an error creating the user:", error);
