@@ -1,14 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { Layout, Button, theme } from "antd";
+import './dashboard.css';
+import Logo from './lib/Logo';
+import Navbar from "./Navbar/Navbar";
+import ToggleThemeButton from "./lib/ToggleThemeButton";
 
+import {MenuUnfoldOutlined, MenuFoldOutlined} from '@ant-design/icons'
 
+const { Header, Sider } = Layout;
+function Dashboard() {
+  const [darkTheme, setDarkTheme] = useState(true);
+  const [collaped, setCollapsed] = useState(false);
 
-const Dashboard = () => {
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme);
+  };
+
+  const {
+    token: {colorBgContainer},
+  } = theme.useToken();
+
   return (
-    <div>
-      This is a Dashboard Page
-      <br />
-      <a href="/">Log Out</a>
-    </div>
+    <Layout>
+      <Sider 
+        collapsed={collaped}
+        collapsible 
+        trigger={ null }
+        theme={darkTheme? 'dark' : 'light'} 
+        className="sidebar"
+      >
+        <Logo />
+        <Navbar darkTheme={darkTheme} />
+        <ToggleThemeButton 
+          darkTheme={darkTheme}
+          toggleTheme={toggleTheme}
+        />
+      </Sider>
+      <Layout>
+        <Header style={{
+          padding: 0, 
+          background: colorBgContainer
+        }}>
+          <Button 
+            type='text' 
+            className="toggle"
+            onClick={() => setCollapsed(!collaped)}
+            icon={collaped ? 
+            <MenuUnfoldOutlined /> :
+            <MenuFoldOutlined /> } 
+
+          /> 
+        </Header>
+      </Layout>
+    </Layout>
+  
   );
 };
 

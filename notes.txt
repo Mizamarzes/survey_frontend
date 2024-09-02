@@ -1,0 +1,4 @@
+LIBRERIAS ADICIONALES:
+
+npm install antd 
+npm i react-toastify
