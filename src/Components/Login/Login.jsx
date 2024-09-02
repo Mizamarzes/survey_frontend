@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import "../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
-import { toastError, toastSuccess } from '../ToastService/ToastService';
+import { toastError, toastSuccess } from "../ToastService/ToastService";
 
 // Import our assets
 import logo from "../../LoginAssets/logo.png";
@@ -19,47 +19,47 @@ const Login = () => {
   const [loginPassword, setLoginPassword] = useState("");
   const navigateTo = useNavigate();
 
-  //Let us now show the message to the user
-  const [loginStatus, setLoginStatus] = useState("");
-  const [statusHolder, setstatusHolder] = useState("message");
-
   // Onclick let us get what the user has entered
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault(); // Evita que la página se recargue
-    Axios.post("http://localhost:8080/auth/login", {
-      username: loginUsername, // Cambié Username a username
-      password: loginPassword, // Cambié Password a password
-    })
-      .then((response) => {
-        console.log(response);
-        
-        if (
-          response.data.message ||
-          loginUsername == "" ||
-          loginPassword == ""
-        ) {
-          // If credential don't match
-          navigateTo("/"); // Navigate to the same login page
-          setLoginStatus("Credetials not Exists!");
-        } else {
-          toastSuccess('You have successfully logged in');
-          navigateTo("/dashboard"); // Navigate to the dashboard
-        }
-      })
-      .catch((error) => {
-        console.error("There was an error loging the user:", error);
-        toastError(error.message);
-      });
-  };
 
-  useEffect(() => {
-    if (loginStatus !== "") {
-      setstatusHolder("showMessage");
-      setTimeout(() => {
-        setstatusHolder("message");
-      }, 4000); // 4 seconds
+    if (!loginUsername || !loginPassword) {
+      // If credential don't match
+      toastError("Please enter both Username and Password!");
+      navigateTo("/"); // Navigate to the same login page
+      return;
     }
-  }, [loginStatus]);
+
+    // Si las credenciales son correctas, hacemos la petición al backend para logear al usuario
+    try {
+      const response = await Axios.post("http://localhost:8080/auth/login", {
+        username: loginUsername,
+        password: loginPassword,
+      });
+
+      if (response.status === 200) {
+        // Si la autenticación es exitosa
+        toastSuccess("You have successfully logged in");
+        navigateTo("/dashboard");
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 403) {
+        // Si el servidor devuelve 403 (credenciales incorrectas)
+        toastError("Invalid credentials. Please try again.");
+      } else if (error.response) {
+        // Si hay otro error desde el servidor
+        toastError("An error occurred: " + error.response.data.message);
+      } else if (error.request) {
+        // Si no se recibe respuesta del servidor
+        toastError("No response from the server. Please try again later.");
+      } else {
+        // Si ocurrió un error al configurar la solicitud
+        toastError(
+          "An error occurred while setting up the request. Please try again."
+        );
+      }
+    }
+  };
 
   // Lets clear the form on submit
   const onSubmit = () => {
@@ -93,8 +93,6 @@ const Login = () => {
           </div>
 
           <form action="" className="form grid" onSubmit={onSubmit}>
-            <span className={statusHolder}>{loginStatus}</span>
-
             <div className="inputDiv">
               <label htmlFor="username">Username</label>
               <div className="input flex">
