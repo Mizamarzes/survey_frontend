@@ -1,7 +1,9 @@
 import "./App.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
+import { ToastContainer } from 'react-toastify';
 
 // Import React react dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -46,6 +48,7 @@ function App() {
   return (
     <div>
       <RouterProvider router={router} />
+      <ToastContainer />
     </div>
   );
 }

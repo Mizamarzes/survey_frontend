@@ -3,6 +3,7 @@ import "./Login.css";
 import "../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
+import { toastError, toastSuccess } from '../ToastService/ToastService';
 
 // Import our assets
 import logo from "../../LoginAssets/logo.png";
@@ -31,6 +32,7 @@ const Login = () => {
     })
       .then((response) => {
         console.log(response);
+        
         if (
           response.data.message ||
           loginUsername == "" ||
@@ -38,14 +40,15 @@ const Login = () => {
         ) {
           // If credential don't match
           navigateTo("/"); // Navigate to the same login page
-          setLoginStatus(`Credetials Don´t Exist!`);
+          setLoginStatus("Credetials not Exists!");
         } else {
-          // If credential match
+          toastSuccess('You have successfully logged in');
           navigateTo("/dashboard"); // Navigate to the dashboard
         }
       })
       .catch((error) => {
         console.error("There was an error loging the user:", error);
+        toastError(error.message);
       });
   };
 
