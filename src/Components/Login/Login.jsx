@@ -38,6 +38,12 @@ const Login = () => {
       });
 
       if (response.status === 200) {
+        // Asumiendo que el token se encuentra en la respuesta
+        const { token } = response.data; // Ajusta esto según cómo el backend devuelve el token
+
+        // Almacenar el token en localStorage
+        localStorage.setItem('token', token);
+
         // Si la autenticación es exitosa
         toastSuccess("You have successfully logged in");
         navigateTo("/dashboard");

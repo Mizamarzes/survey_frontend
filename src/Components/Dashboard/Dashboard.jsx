@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Layout, Button, theme } from "antd";
 import Logo from "./lib/Logo";
 import Navbar from "../Navbar/Navbar";
@@ -7,7 +7,15 @@ import ToggleThemeButton from "./lib/ToggleThemeButton";
 import SurveyForm from "../Survey/SurveyForm";
 
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+
 import { Content } from "antd/es/layout/layout";
+
+import SurveyList from "../Survey/SurveyList";
+
+// Api SurveyService.js
+import { getAllSurveys } from "../../api/SurveyService";
+import { toastError } from "../ToastService/ToastService";
+
 
 const { Header, Sider } = Layout;
 function Dashboard() {
@@ -20,6 +28,27 @@ function Dashboard() {
 
   const [darkTheme, setDarkTheme] = useState(true);
   const [collaped, setCollapsed] = useState(false);
+
+  const modalRef = useRef();
+  const fileRef = useRef();
+  const [data, setData] = useState({});
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const getSurveys = async (page = 0, size = 10) => {
+    try {
+      setCurrentPage(page);
+      const { data } = await getAllSurveys(page, size);
+      setData(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+      toastError(error.message);
+    }
+  }
+
+  useEffect(() => {
+    getSurveys();
+  }, []);
 
   const toggleTheme = () => {
     setDarkTheme(!darkTheme);
@@ -57,12 +86,16 @@ function Dashboard() {
             icon={collaped ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           />
         </Header>
+
         <Content>
           <div className="dashboard">
             <h1>Surveys Dashboard</h1>
             <SurveyForm addSurvey={addSurvey} />
           </div>
         </Content>
+
+        <SurveyList data={ data } currentPage={ currentPage } getAllSurveys={getSurveys}/>
+
       </Layout>
     </Layout>
   );

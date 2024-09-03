@@ -1,0 +1,53 @@
+.survey_item{
+    width: 100%;
+	background-color: #ecf1f1;
+	padding: .88rem;
+	border-radius: var(5px);
+	cursor: pointer;
+	min-height: max-content;
+	/* max-width: 280px; */
+}
+
+.survey_header{
+    display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	column-gap: 12px;
+}
+
+.main {
+	margin-top: 1.3rem;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.pagination a {
+	color: black;
+	padding: 5px 10px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
+
+.pagination a:first-child {
+	border-top-left-radius: var(--radius-5);
+	border-bottom-left-radius: var(--radius-5);
+}
+
+.pagination a:last-child {
+	border-top-right-radius: var(--radius-5);
+	border-bottom-right-radius: var(--radius-5);
+}
+
+.pagination a.active {
+	background-color: var(--selective-blue);
+	color: white;
+	border: 1px solid var(--selective-blue);
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ecf1f1;
+}
