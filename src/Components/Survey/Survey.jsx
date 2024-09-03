@@ -1,12 +1,14 @@
 import React from 'react'
+import "./Survey.css";
+import { Link } from 'react-router-dom'
 
 const Survey = ({ survey }) => {
     return (
-        <Link to={`/contacts/${survey.id}`} className="contact__item">
-            <div className="contact__header">
-                <div className="contact__details">
-                    <p className="contact_name">{contact.name.substring(0, 15)} </p>
-                    <p className="contact_title">{contact.description}</p>
+        <Link to={`/api/survey/`} className="survey_item">
+            <div className="survey_header">
+                <div>
+                    <p>{survey.name}</p>
+                    <p>{survey.description}</p>
                 </div>
             </div>
         </Link>
