@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./Register.css";
-import "../../App.css";
+import "../../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
-import { toastError, toastSuccess } from "../ToastService/ToastService";
+import { toastError, toastSuccess } from "../../../services/ToastService/ToastService";
 
 // Import our assets
-import logo from "../../LoginAssets/logo.png";
+import logo from "../../../assets/logo.png";
 
 // Import our icons
 import { FaUserShield } from "react-icons/fa";

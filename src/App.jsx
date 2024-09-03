@@ -1,15 +1,19 @@
 import "./App.css";
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from "./Components/Dashboard/Dashboard";
-import Login from "./Components/Login/Login";
-import Register from "./Components/Register/Register";
+import Login from "./Components/Auth/Login/Login";
+import Register from "./Components/Auth/Register/Register";
 import { ToastContainer } from 'react-toastify';
-import UpdateSurvey from "./Components/Survey/pages/UpdateSurvey";
-import CreateSurvey from "./Components/Survey/pages/CreateSurvey";
+
+// pages
+import Home from "./pages/Home";
+import UpdateSurvey from "./pages/UpdateSurvey";
+import CreateSurvey from "./pages/CreateSurvey";
+import SurveyList from "./pages/SurveyList";
 
 // Import React react dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SurveyList from "./Components/Survey/pages/SurveyList";
+
 
 // Lets create a router
 const router = createBrowserRouter([
@@ -37,7 +41,8 @@ const router = createBrowserRouter([
       </div>
     ),
     children: [
-      { path: "home", element: <SurveyList />},
+      { path: "home", element: <Home />},
+      { path: "view-survey", element: <SurveyList />},
       { path: "create-survey", element: <CreateSurvey />},
       { path: "update-survey", element: <UpdateSurvey />}
     ],

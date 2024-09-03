@@ -5,6 +5,8 @@ import {
     AreaChartOutlined,
 } from '@ant-design/icons';
 
+import './Navbar.css';
+
 import { Link } from 'react-router-dom';
 
 const Navbar = ({ darkTheme }) => {
@@ -13,6 +15,11 @@ const Navbar = ({ darkTheme }) => {
             key: 'home',
             icon: <HomeOutlined />,
             label: <Link to="home">Home</Link>
+        },
+        {
+            key: 'viewsurveys',
+            icon: <HomeOutlined />,
+            label: <Link to="view-survey">View Survey</Link>
         },
         {
             key: 'createsurvey',
@@ -26,11 +33,11 @@ const Navbar = ({ darkTheme }) => {
         },
     ];
     return (
-        <Menu 
-        theme={darkTheme ? 'dark' : 'light'} 
-        mode='inline' 
-        className='menu-bar'
-        items={menuItems} // Usar `items` en lugar de `children`
+        <Menu
+            theme={darkTheme ? 'dark' : 'light'}
+            mode='inline'
+            className='menu-bar'
+            items={menuItems} // Usar `items` en lugar de `children`
         />
     )
 }
