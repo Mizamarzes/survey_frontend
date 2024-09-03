@@ -1,9 +1,11 @@
 import React from 'react'
-import Survey from "./Survey";
+import Survey from "../Survey";
 
 const SurveyList = ({ data, currentPage, getAllSurveys }) => {
     return (
+
         <main className='main'>
+            <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
             {data?.content?.length === 0 && <div>No Survey. Please add a new survey</div>}
 
             <ul className='survey_list'>

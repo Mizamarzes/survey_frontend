@@ -10,7 +10,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
 import { Content } from "antd/es/layout/layout";
 
-import SurveyList from "../Survey/SurveyList";
+import SurveyList from "../Survey/pages/SurveyList";
 
 // Import `Outlet` from react-router-dom
 import { Outlet } from "react-router-dom";
@@ -23,12 +23,7 @@ import { toastError } from "../ToastService/ToastService";
 const { Header, Sider } = Layout;
 function Dashboard() {
   // surveys
-  const [surveys, setSurveys] = useState([]);
-
-  const addSurvey = (newSurvey) => {
-    setSurveys([...surveys, newSurvey]);
-  };
-
+  
   const [darkTheme, setDarkTheme] = useState(true);
   const [collaped, setCollapsed] = useState(false);
 
@@ -92,12 +87,10 @@ function Dashboard() {
 
         <Content>
           <div className="dashboard">
-            <h1>Surveys Dashboard</h1>
             <Outlet />
           </div>
         </Content>
 
-        <SurveyList data={ data } currentPage={ currentPage } getAllSurveys={getSurveys}/>
       </Layout>
     </Layout>
   );

@@ -9,6 +9,7 @@ import CreateSurvey from "./Components/Survey/pages/CreateSurvey";
 
 // Import React react dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import SurveyList from "./Components/Survey/pages/SurveyList";
 
 // Lets create a router
 const router = createBrowserRouter([
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
       </div>
     ),
     children: [
+      { path: "home", element: <SurveyList />},
       { path: "create-survey", element: <CreateSurvey />},
       { path: "update-survey", element: <UpdateSurvey />}
     ],
