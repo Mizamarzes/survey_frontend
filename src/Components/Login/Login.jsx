@@ -46,7 +46,7 @@ const Login = () => {
 
         // Si la autenticación es exitosa
         toastSuccess("You have successfully logged in");
-        navigateTo("/dashboard");
+        navigateTo("/dashboard/home");
       }
     } catch (error) {
       if (error.response && error.response.status === 403) {
