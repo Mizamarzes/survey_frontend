@@ -3,43 +3,28 @@ import {
     HomeOutlined,
     AppstoreOutlined,
     AreaChartOutlined,
-    PayCircleOutlined,
-    SettingOutlined,
-    BarsOutlined
 } from '@ant-design/icons';
+
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ darkTheme }) => {
     const menuItems = [
         {
             key: 'home',
             icon: <HomeOutlined />,
-            label: 'Home'
+            label: <Link to="">Home</Link>
+            
         },
         {
-            key: 'activity',
+            key: 'createsurvey',
             icon: <AppstoreOutlined />,
-            label: 'Activity'
+            label: <Link to="create-survey">Create Survey</Link>
         },
         {
-            key: 'subtasks',
-            icon: <BarsOutlined />,
-            title: 'Tasks'
-        },
-        {
-            key: 'progress',
+            key: 'updatesurvey',
             icon: <AreaChartOutlined />,
-            label: 'Progress'
+            label: <Link to="update-survey">Update Survey</Link>
         },
-        {
-            key: 'survey',
-            icon: <PayCircleOutlined />,
-            label: 'Survey'
-        },
-        {
-            key: 'settings',
-            icon: <SettingOutlined />,
-            label: 'Settings'
-        }
     ];
     return (
         <Menu 

@@ -12,6 +12,9 @@ import { Content } from "antd/es/layout/layout";
 
 import SurveyList from "../Survey/SurveyList";
 
+// Import `Outlet` from react-router-dom
+import { Outlet } from "react-router-dom";
+
 // Api SurveyService.js
 import { getAllSurveys } from "../../api/SurveyService";
 import { toastError } from "../ToastService/ToastService";
@@ -90,12 +93,11 @@ function Dashboard() {
         <Content>
           <div className="dashboard">
             <h1>Surveys Dashboard</h1>
-            <SurveyForm addSurvey={addSurvey} />
+            <Outlet />
           </div>
         </Content>
 
         <SurveyList data={ data } currentPage={ currentPage } getAllSurveys={getSurveys}/>
-
       </Layout>
     </Layout>
   );
