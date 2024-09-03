@@ -1,19 +1,31 @@
 import { useState, useRef, useEffect } from "react";
 import { Layout, Button, theme } from "antd";
-import Logo from './lib/Logo';
+import Logo from "./lib/Logo";
 import Navbar from "../Navbar/Navbar";
 import "./Dashboard.css";
 import ToggleThemeButton from "./lib/ToggleThemeButton";
+import SurveyForm from "../Survey/SurveyForm";
 
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+
+import { Content } from "antd/es/layout/layout";
+
 import SurveyList from "../Survey/SurveyList";
 
 // Api SurveyService.js
 import { getAllSurveys } from "../../api/SurveyService";
 import { toastError } from "../ToastService/ToastService";
 
+
 const { Header, Sider } = Layout;
 function Dashboard() {
+  // surveys
+  const [surveys, setSurveys] = useState([]);
+
+  const addSurvey = (newSurvey) => {
+    setSurveys([...surveys, newSurvey]);
+  };
+
   const [darkTheme, setDarkTheme] = useState(true);
   const [collaped, setCollapsed] = useState(false);
 
@@ -58,6 +70,7 @@ function Dashboard() {
         <Logo />
         <Navbar darkTheme={darkTheme} />
         <ToggleThemeButton darkTheme={darkTheme} toggleTheme={toggleTheme} />
+        <a href="/">LogOut</a>
       </Sider>
       <Layout>
         <Header
@@ -72,9 +85,17 @@ function Dashboard() {
             onClick={() => setCollapsed(!collaped)}
             icon={collaped ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           />
-          <a href="/">LogOut</a>
         </Header>
+
+        <Content>
+          <div className="dashboard">
+            <h1>Surveys Dashboard</h1>
+            <SurveyForm addSurvey={addSurvey} />
+          </div>
+        </Content>
+
         <SurveyList data={ data } currentPage={ currentPage } getAllSurveys={getSurveys}/>
+
       </Layout>
     </Layout>
   );

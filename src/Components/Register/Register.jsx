@@ -25,6 +25,11 @@ const Register = () => {
     e.preventDefault(); // Evita que la página se recargue
 
     // Validaciones
+    if (username.length > 12) {
+      toastError("Username cannot be more than 12 characters long!");
+      return;
+    }
+
     if (!username || !password || !confirmPassword) {
       toastError("Please fill in all fields!");
       return;
