@@ -4,20 +4,17 @@ import Logo from "./lib/Logo";
 import Navbar from "../Navbar/Navbar";
 import "./Dashboard.css";
 import ToggleThemeButton from "./lib/ToggleThemeButton";
-import SurveyForm from "../Survey/SurveyForm";
 
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
 import { Content } from "antd/es/layout/layout";
 
-import SurveyList from "../Survey/pages/SurveyList";
-
 // Import `Outlet` from react-router-dom
 import { Outlet } from "react-router-dom";
 
 // Api SurveyService.js
-import { getAllSurveys } from "../../api/SurveyService";
-import { toastError } from "../ToastService/ToastService";
+import { getAllSurveys } from "../../services/SurveyService";
+import { toastError } from "../../services/ToastService/ToastService";
 
 
 const { Header, Sider } = Layout;

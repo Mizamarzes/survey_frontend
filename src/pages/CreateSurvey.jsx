@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import SurveyForm from '../SurveyForm'
+import SurveyForm from '../Components/Survey/SurveyForm'
 
 const CreateSurvey = () => {
   const [surveys, setSurveys] = useState([]);
