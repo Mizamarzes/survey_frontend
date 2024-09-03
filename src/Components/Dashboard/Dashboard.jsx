@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Layout, Button, theme } from "antd";
+import Logo from './lib/Logo';
+import Navbar from "../Navbar/Navbar";
 import "./Dashboard.css";
-import Logo from "./lib/Logo";
-import Navbar from "./Navbar/Navbar";
 import ToggleThemeButton from "./lib/ToggleThemeButton";
 
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
