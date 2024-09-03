@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Layout, Button, theme } from "antd";
 import './dashboard.css';
 import Logo from './lib/Logo';
-import Navbar from "./Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 import ToggleThemeButton from "./lib/ToggleThemeButton";
 
 import {MenuUnfoldOutlined, MenuFoldOutlined} from '@ant-design/icons'
