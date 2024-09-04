@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import Home from "./pages/Home";
 import UpdateSurvey from "./pages/UpdateSurvey";
 import CreateSurvey from "./pages/CreateSurvey";
-import SurveyList from "./pages/SurveyList";
+import ViewSurveys from "./pages/ViewSurveys";
 
 // Import React react dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: "home", element: <Home />},
-      { path: "view-survey", element: <SurveyList />},
+      { path: "view-survey", element: <ViewSurveys />},
       { path: "create-survey", element: <CreateSurvey />},
       { path: "update-survey", element: <UpdateSurvey />}
     ],

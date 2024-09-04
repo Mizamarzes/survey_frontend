@@ -29,22 +29,6 @@ function Dashboard() {
   const [data, setData] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
 
-  const getSurveys = async (page = 0, size = 10) => {
-    try {
-      setCurrentPage(page);
-      const { data } = await getAllSurveys(page, size);
-      setData(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-      toastError(error.message);
-    }
-  }
-
-  useEffect(() => {
-    getSurveys();
-  }, []);
-
   const toggleTheme = () => {
     setDarkTheme(!darkTheme);
   };
