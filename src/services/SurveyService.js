@@ -31,13 +31,15 @@ export async function getAllSurveys(page = 0, size = 10) {
                 Authorization: `Bearer ${token}` // Añadir token JWT al encabezado
             }
         });
-        console.log(token)
-        console.log(response);
         return response.data; 
     } catch (error) {
         console.error("Error fetching surveys:", error);
         throw error;
     }
+}
+
+export async function getContacts(page = 0, size = 10) {
+    return await axios.get(`${API_URL}?page=${page}&size=${size}`);
 }
 
 // Obtener una encuesta por ID

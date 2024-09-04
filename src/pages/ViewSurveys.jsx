@@ -1,35 +1,59 @@
 import { useState, useEffect} from 'react'
 import SurveyList from '../Components/Survey/SurveyList'
-import { getAllSurveys } from '../services/SurveyService';
+import { getAllSurveys, getSurvey } from '../services/SurveyService';
+
+import { toastError, toastSuccess } from "../services/ToastService/ToastService";
+
 
 const ViewSurveys = () => {
+    // const [data, setData] = useState({});
+    // const [currentPage, setCurrentPage] = useState(0);
+    // const [showSurveyList, setShowSurveyList] = useState(false); // Nuevo estado para mostrar/ocultar
 
-    const [data, setData] = useState({});
-    const [currentPage, setCurrentPage] = useState(0);
+    const [ surveys, setSurveys] = useState([])
 
-    const getSurveys = async (page = 0, size = 10) => {
+    // const [survey, setSurvey] = useState({
+    //     id: '',
+    //     name: '',
+    //     chapters: [],
+    //     categoriesCatalogs: [],
+    //     componenthtml: '',
+    //     componentreact: '',
+    //     description: ''
+    // });
+
+    // const { id } = useParams();
+
+    const fetchAllSurveys = async (page = 0, size = 10) => {
         try {
-            setCurrentPage(page);
-            const { data } = await getAllSurveys(page, size);
-            setData(data);
-            console.log(data);
+            const response = await getAllSurveys(page, size);
+            setSurveys(response.data);
+            toastSuccess("Success Loading Surveys")
         } catch (error) {
             console.log(error);
-            toastError(error.message);
+            toastError("Error Loading Surveys");
         }
     }
 
+    // const fetchSurvey = async (id) => {
+    //     try {
+    //         const responseSurvey = await getSurvey(id);
+    //         setSurvey(responseSurvey.data); // Aquí corriges la asignación
+    //     } catch (error) {
+    //         console.log(error);
+    //         toastError(error.message);
+    //     }
+    // };
+
     useEffect(() => {
-        getSurveys();
-    }, []);
+        fetchAllSurveys();
+    }, []); 
 
 
     return (
         <div>
-            ViewSurveys
-            <SurveyList data={data} currentPage={currentPage} getAllSurveys={getSurveys} />
+            <SurveyList data={surveys} />
         </div>
-
     )
 }
 

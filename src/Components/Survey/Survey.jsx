@@ -3,12 +3,16 @@ import "./Survey.css";
 import { Link } from 'react-router-dom'
 
 const Survey = ({ survey }) => {
+
+    if (!survey || !survey.name || !survey.description) return null;
+
     return (
-        <Link to={`/api/survey/`} className="survey_item">
+        <Link to={`/api/survey/${survey.id}`} className="survey_item">
             <div className="survey_header">
                 <div>
-                    <p>{survey.name}</p>
-                    <p>{survey.description}</p>
+                    <p>Id: {survey.id}</p>
+                    <p>Name: {survey.name.substring(0, 15)}</p>
+                    <p>Description: {survey.description}</p>
                 </div>
             </div>
         </Link>
