@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 
 const Survey = ({ survey }) => {
 
-    if (!survey || !survey.name || !survey.description) return null;
-
     return (
         <Link to={`/api/survey/${survey.id}`} className="survey_item">
             <div className="survey_header">
