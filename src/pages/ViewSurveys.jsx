@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getAllSurveys } from '../services/SurveyService';
 import { toastError, toastSuccess } from "../services/ToastService/ToastService";
+import SurveyList from '../Components/Survey/SurveyList';
 
 
 const ViewSurveys = () => {
@@ -59,13 +60,7 @@ const ViewSurveys = () => {
 
     return (
         <div>
-            {surveys.map(survey => (
-                <div key={survey.id}>
-                    <h2>{survey.id}</h2>
-                    <h2>{survey.name}</h2>
-                    <p>{survey.description}</p>
-                </div>
-            ))}
+            <SurveyList data={surveys}/>
         </div>
     );
 }
