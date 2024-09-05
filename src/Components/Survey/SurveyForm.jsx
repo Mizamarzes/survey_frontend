@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ChapterForm from './ChapterForm';
 
 const SurveyForm = ({ addSurvey }) => {
   const [title, setTitle] = useState('');
@@ -28,6 +29,7 @@ const SurveyForm = ({ addSurvey }) => {
         placeholder="Enter survey description"
       />
       <button type="submit">Add Survey</button>
+      <ChapterForm />
     </form>
   );
 };

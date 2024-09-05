@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import SurveyForm from '../Components/Survey/SurveyForm'
+import { useState } from "react";
+import SurveyForm from "../Components/Survey/SurveyForm";
 
 const CreateSurvey = () => {
   const [surveys, setSurveys] = useState([]);
@@ -13,7 +13,8 @@ const CreateSurvey = () => {
       <h1>Surveys Dashboard</h1>
       <SurveyForm addSurvey={addSurvey} />
     </div>
-  )
-}
+    
+  );
+};
 
-export default CreateSurvey
+export default CreateSurvey;
