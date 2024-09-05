@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Drawer } from "vaul";
 import QuestionForm from "./QuestionForm";
-import "../../App.css"
+import "./Survey.css"
+import { AiOutlineSwapRight } from "react-icons/ai";
 
 const ChapterForm = () => {
   const [title, setTitle] = useState("");
@@ -9,7 +10,7 @@ const ChapterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title) {
-      addChapter({ id: Date.now(), title, questions: [] });
+      addChapter({ chapter_title: title, questions: [] });
       setTitle("");
     }
   };
@@ -17,20 +18,23 @@ const ChapterForm = () => {
   return (
     <Drawer.Root shouldScaleBackground>
       <Drawer.Trigger asChild>
-        <button>Open Drawer</button>
+        <button className="w-full flex items-center justify-center px-4 py-2 bg-white text-lime-600 rounded-lg hover:bg-lime-100 hover:text-gray-700">
+          Add Chapter
+          <AiOutlineSwapRight className="ml-2" />
+        </button>
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-        <Drawer.Content className="bg-gray-100 flex flex-col rounded-t-[10px] h-full mt-24 max-h-[96%] fixed bottom-0 left-0 right-0">
+        <Drawer.Content className="bg-gray-100 flex flex-col items-stretch rounded-t-[10px] h-full mt-24 max-h-[96%] fixed bottom-0 left-0 right-0">
           <div className="p-4 bg-white rounded-t-[10px] flex-1">
             <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-8" />
             <div className="max-w-md mx-auto">
               <Drawer.Title className="font-medium mb-4">
                 Chapters.
               </Drawer.Title>
-              <p className="text-gray-600 mb-2">
+              <Drawer.Description className="text-gray-600 mb-2">
                 Add a chapter title.
-              </p>
+              </Drawer.Description>
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
@@ -38,7 +42,13 @@ const ChapterForm = () => {
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Enter chapter title"
                 />
-                <button type="submit">Add Chapter</button>
+                <button
+                  type="submit"
+                  className="ml-4 px-6 py-2 bg-white text-green-600 rounded-lg hover:bg-green-100 hover:text-gray-700"
+                >
+                  Add Chapter
+                  <AiOutlineSwapRight className="ml-2" />
+                </button>
               </form>
               <Drawer.NestedRoot>
                 <Drawer.Trigger className="rounded-md mb-6 w-full bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
@@ -46,7 +56,7 @@ const ChapterForm = () => {
                 </Drawer.Trigger>
                 <Drawer.Portal>
                   <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-                  <Drawer.Content className="bg-gray-100 flex flex-col rounded-t-[10px] h-full mt-24 max-h-[94%] fixed bottom-0 left-0 right-0">
+                  <Drawer.Content className="bg-gray-100 flex flex-col items-stretch rounded-t-[10px] h-full mt-24 max-h-[94%] fixed bottom-0 left-0 right-0">
                     <div className="p-4 bg-white rounded-t-[10px] flex-1">
                       <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-8" />
                       <div className="max-w-md mx-auto">

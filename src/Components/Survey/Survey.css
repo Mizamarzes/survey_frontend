@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .survey_item{
     width: 100%;
 	background-color: #ecf1f1;
