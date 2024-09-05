@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   padding: 0;
   margin: 0;
@@ -358,7 +361,7 @@ img {
 }
 ::-webkit-scrollbar {
   display: none;
-}/*# sourceMappingURL=App.css.map */
+}
 
 .dashboard {
   padding: 20px;
@@ -392,10 +395,10 @@ button:hover {
   background-color: #0056b3;
 }
 
-input[type="text"],
+input[type=text],
 select {
   padding: 5px;
   margin-top: 5px;
   border-radius: 3px;
   border: 1px solid #ccc;
-}
+}/*# sourceMappingURL=App.css.map */
