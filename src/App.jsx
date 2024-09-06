@@ -13,6 +13,7 @@ import ViewSurveys from "./pages/ViewSurveys";
 
 // Import React react dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import SurveyDetails from "./Components/Survey/SurveyDetails";
 
 
 // Lets create a router
@@ -44,7 +45,8 @@ const router = createBrowserRouter([
       { path: "home", element: <Home />},
       { path: "view-survey", element: <ViewSurveys />},
       { path: "create-survey", element: <CreateSurvey />},
-      { path: "update-survey", element: <UpdateSurvey />}
+      { path: "update-survey", element: <UpdateSurvey />},
+      { path: "view-survey/:id", element: <SurveyDetails /> }
     ],
   },
   /* path: "/",
