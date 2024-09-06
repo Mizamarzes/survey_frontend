@@ -14,7 +14,7 @@ const CreateSurvey = () => {
       <div className="mb-8 text-center">
         <h1 className="text-2xl font-semibold">Surveys Dashboard</h1>
       </div>
-      <SurveyForm addSurvey={addSurvey} />
+      <SurveyForm />
     </div>
   );
 };
