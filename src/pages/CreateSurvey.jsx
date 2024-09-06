@@ -1,6 +1,6 @@
 import { useState } from "react";
-import SurveyForm from "../Components/Survey/SurveyForm";
 import "../Components/Survey/Survey.css";
+import SurveyForm from "../Components/Survey/SurveyForm";
 
 const CreateSurvey = () => {
   const [surveys, setSurveys] = useState([]);
@@ -10,9 +10,9 @@ const CreateSurvey = () => {
   };
 
   return (
-    <div className="flex flex-col p-8 lg:w-1/2">
-      <div className="mb-8 text-center">
-        <h1 className="text-2xl font-semibold">Surveys Dashboard</h1>
+    <div className="mt-8 flex flex-col p-8 bg-white shadow-md rounded-lg lg:w-1/2">
+      <div className="mb-8 text-center ">
+        <h1 className="text-2xl font-semibold text-gray-700">Surveys Dashboard</h1>
       </div>
       <SurveyForm />
     </div>
