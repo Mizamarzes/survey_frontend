@@ -24,7 +24,7 @@ const ViewSurveys = () => {
 
     // const { id } = useParams();
 
-    const fetchAllSurveys = async (page = 0, size = 5) => {
+    const fetchAllSurveys = async (page = 0, size = 8) => {
         try {
             setCurrentPage(page);
             const response = await getAllSurveys(page, size);
