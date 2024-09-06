@@ -23,15 +23,16 @@ function Dashboard() {
         collapsible
         trigger={null}
         theme="light"
-        className="text-black"
+        className="text-black min-h-screen"
       >
-        <div className="flex items-center justify-center w-full pt-5">
-          <img className="p-3 h-20 w-20" src={logo} alt="Logo Image" />
+        <div className="flex items-center justify-center w-full pt-8">
+          <img className="p-4 h-20 w-20" src={logo} alt="Logo Image" />
         </div>
 
         <Navbar />
-
-        <a href="/">LogOut</a>
+        {/* <div className="w-11/12 p-4 bg-gray-600 text-base">
+          <a href="/">LogOut</a>
+        </div> */}
       </Sider>
 
       <Layout>
