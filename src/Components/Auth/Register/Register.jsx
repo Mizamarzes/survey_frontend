@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import "./Register.css";
-import "../../../App.css";
-import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "../../../App.css";
 import { toastError, toastSuccess } from "../../../services/ToastService/ToastService";
+import "./Register.css";
 
 // Import our assets
 import logo from "../../../assets/logo.png";
 
 // Import our icons
-import { FaUserShield } from "react-icons/fa";
-import { BsFillShieldLockFill } from "react-icons/bs";
 import { AiOutlineSwapRight } from "react-icons/ai";
+import { BsFillShieldLockFill } from "react-icons/bs";
+import { FaUserShield } from "react-icons/fa";
 
 const Register = () => {
   // UseState to hold our inputs

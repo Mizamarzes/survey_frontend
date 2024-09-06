@@ -1,24 +1,52 @@
 import React, { useState } from "react";
+import { saveChapter } from "../../services/ChapterService";
+import {
+  toastError,
+  toastSuccess,
+} from "../../services/ToastService/ToastService";
+import { AiOutlineSwapRight } from "react-icons/ai";
 import { Drawer } from "vaul";
 import QuestionForm from "./QuestionForm";
-import "./Survey.css"
-import { AiOutlineSwapRight } from "react-icons/ai";
+import "./Survey.css";
 
-const ChapterForm = () => {
+const ChapterForm = ({ surveyId }) => {
   const [title, setTitle] = useState("");
+  const [chapters, setChapters] = useState([]); // Estado para almacenar los capítulos
 
-  const handleSubmit = (e) => {
+  // Función para manejar la creación del capítulo
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (title) {
-      addChapter({ chapter_title: title, questions: [] });
-      setTitle("");
+    if (title && surveyId) {
+      try {
+        // Crear el objeto de capítulo con el título y el surveyId
+        const newChapter = { survey_id: surveyId,  chapter_title: title};
+
+        // Guardar el capítulo y obtener el ID
+        const chapterId = await saveChapter(newChapter);
+
+        toastSuccess("Chapter saved with ID: " + chapterId);
+        // Crear un objeto completo con los datos del capítulo y agregarlo a la lista
+        const createdChapter = {
+          id: chapterId,
+          chapter_title: title,
+        };
+
+        // Actualizar la lista de capítulos
+        setChapters([...chapters, createdChapter]);
+
+        // Limpiar el campo del formulario
+        setTitle("");
+      } catch (error) {
+        console.error("Error creating chapter:", error);
+        toastError("Failed to save chapter. Please try again.");
+      }
     }
   };
 
   return (
     <Drawer.Root shouldScaleBackground>
       <Drawer.Trigger asChild>
-        <button className="w-full flex items-center justify-center px-4 py-2 bg-white text-lime-600 rounded-lg hover:bg-lime-100 hover:text-gray-700">
+        <button className="w-full border flex items-center justify-center px-4 py-2 bg-white text-lime-600 rounded-lg hover:bg-lime-100 hover:text-gray-700">
           Add Chapter
           <AiOutlineSwapRight className="ml-2" />
         </button>
@@ -50,6 +78,23 @@ const ChapterForm = () => {
                   <AiOutlineSwapRight className="ml-2" />
                 </button>
               </form>
+              {/* Mostrar los capítulos creados */}
+              <div className="chapter-list mt-4">
+                {chapters.length > 0 ? (
+                  chapters.map((chapter) => (
+                    <div
+                      key={chapter.id}
+                      className="chapter-item p-2 border border-gray-300 rounded-lg mb-2"
+                    >
+                      <h3 className="text-lg font-semibold">
+                        Chapter Title: {chapter.chapter_title}
+                      </h3>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-gray-600">No chapters created yet.</p>
+                )}
+              </div>
               <Drawer.NestedRoot>
                 <Drawer.Trigger className="rounded-md mb-6 w-full bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
                   Add Question
