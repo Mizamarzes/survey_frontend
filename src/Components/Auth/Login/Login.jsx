@@ -43,6 +43,7 @@ const Login = () => {
 
         // Almacenar el token en localStorage
         localStorage.setItem('token', token);
+        localStorage.setItem('username', loginUsername);
 
         // Si la autenticación es exitosa
         toastSuccess("You have successfully logged in");
