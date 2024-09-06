@@ -10,13 +10,14 @@
 }
 
 :root {
-  --primaryColor: hsl(94, 55%, 56%);
-  --hoverColor: hsl(93, 75%, 76%);
+  --PrimaryColor: hsl(94, 59%, 35%);
+  --HoverColor: hsl(93, 75%, 76%);
   --paleGreen: hsl(96, 75%, 89%);
   --whiteColor: hsl(0, 0%, 100%);
   --blackColor: hsl(0, 0%, 18%);
-  --greyText: hsl(0, 0%, 75%);
-  --bgColor: hsl(113, 11%, 85%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: hsl(240, 1%, 75%);
   --inputColor: hsl(330, 12%, 97%);
   --biggestFontSize: 2.5rem;
   --h1FontSize: 1.5rem;
