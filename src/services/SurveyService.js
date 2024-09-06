@@ -71,6 +71,7 @@ export async function updateSurvey(survey) {
 // Eliminar una encuesta por ID
 export async function deleteSurvey(id) {
     try {
+        
         const token = getToken();
         return await axios.delete(`${API_URL}/${id}`, {
             headers: {
