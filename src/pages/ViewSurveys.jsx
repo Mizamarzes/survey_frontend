@@ -55,8 +55,6 @@ const ViewSurveys = () => {
     // };
 
     useEffect(() => {
-        
-
         fetchAllSurveys();
     }, []); 
 

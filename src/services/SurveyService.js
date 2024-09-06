@@ -38,10 +38,6 @@ export async function getAllSurveys(page = 0, size = 10) {
     }
 }
 
-export async function getContacts(page = 0, size = 10) {
-    return await axios.get(`${API_URL}?page=${page}&size=${size}`);
-}
-
 // Obtener una encuesta por ID
 export async function getSurvey(id) {
     try {
