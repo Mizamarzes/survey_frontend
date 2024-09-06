@@ -1,5 +1,5 @@
 import React from 'react'
-import '../App.css';
+import './Pages.css';
 
 const home = () => {
 
@@ -8,8 +8,8 @@ const home = () => {
   
 
   return (
-    <div className="relative flex justify-center items-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url("/path/to/your/background.jpg")' }}>
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+    <div className="relative flex justify-center items-center min-h-full bg-gray-200">
+      <div className="absolute inset-0"></div>
       <div className="relative z-10 text-center text-white p-6 rounded-lg shadow-lg bg-gray-800 bg-opacity-70">
         <h1 className="text-4xl font-bold mb-4">
           Hola, Bienvenido {username ? username : 'Invitado'}

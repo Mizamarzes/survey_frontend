@@ -44,7 +44,7 @@ const Navbar = () => {
     <Menu
       theme="light"
       mode="inline"
-      className="menu-icons h-3/4 mt-10 flex flex-col items-center gap-4 text-base"
+      className="h-3/4 mt-10 flex flex-col items-center gap-4 text-base"
       items={menuItems} // Usar `items` en lugar de `children`
     />
   );
