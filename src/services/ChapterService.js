@@ -32,3 +32,18 @@ export async function saveChapter(chapter) {
     throw error;
   }
 }
+
+// Obtener una encuesta por ID
+export async function getChapter(id) {
+    try {
+        const token = getToken();
+        return await axios.get(`${API_URL}/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}` // Añadir token JWT al encabezado
+            }
+        });
+    } catch (error) {
+        console.error("Error fetching survey:", error);
+        throw error;
+    }
+}
