@@ -1,45 +1,53 @@
-import { Menu } from 'antd';
+import { Menu } from "antd";
 import {
-    HomeOutlined,
-    AppstoreOutlined,
-    AreaChartOutlined,
-} from '@ant-design/icons';
+  HomeOutlined,
+  AppstoreOutlined,
+  AreaChartOutlined,
+  LogoutOutlined,
+  UnorderedListOutlined,
+} from "@ant-design/icons";
 
-import './Navbar.css';
+import "./Navbar.css";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import SubMenu from "antd/es/menu/SubMenu";
 
-const Navbar = ({ darkTheme }) => {
-    const menuItems = [
-        {
-            key: 'home',
-            icon: <HomeOutlined />,
-            label: <Link to="home">Home</Link>
-        },
-        {
-            key: 'viewsurveys',
-            icon: <HomeOutlined />,
-            label: <Link to="view-survey">View Survey</Link>
-        },
-        {
-            key: 'createsurvey',
-            icon: <AppstoreOutlined />,
-            label: <Link to="create-survey">Create Survey</Link>
-        },
-        {
-            key: 'updatesurvey',
-            icon: <AreaChartOutlined />,
-            label: <Link to="update-survey">Update Survey</Link>
-        },
-    ];
-    return (
-        <Menu
-            theme={darkTheme ? 'dark' : 'light'}
-            mode='inline'
-            className='menu-bar'
-            items={menuItems} // Usar `items` en lugar de `children`
-        />
-    )
-}
+const Navbar = () => {
+  const menuItems = [
+    {
+      key: "home",
+      icon: <HomeOutlined />,
+      label: <Link to="home">Home</Link>,
+    },
+    {
+      key: "viewsurveys",
+      icon: <UnorderedListOutlined />,
+      label: <Link to="view-survey">View Survey</Link>,
+    },
+    {
+      key: "createsurvey",
+      icon: <AppstoreOutlined />,
+      label: <Link to="create-survey">Create Survey</Link>,
+    },
+    {
+      key: "updatesurvey",
+      icon: <AreaChartOutlined />,
+      label: <Link to="update-survey">Update Survey</Link>,
+    },
+    {
+      key: "logout",
+      icon: <LogoutOutlined />,
+      label: <Link to="../">LogOut</Link>,
+    },
+  ];
+  return (
+    <Menu
+      theme="light"
+      mode="inline"
+      className="menu-icons h-3/4 mt-10 flex flex-col items-center gap-4 text-base"
+      items={menuItems} // Usar `items` en lugar de `children`
+    />
+  );
+};
 
 export default Navbar;
